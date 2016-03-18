@@ -31,7 +31,7 @@
                   out.print("<td>"+resultat.getString("chimie")+"</td></tr>");
                   somme[2] = Double.parseDouble(resultat.getString("chimie"));
               }
-              out.print("<tr><td>Moyenne : </td> <td>"+somme[0]/nbNotes+"</td> <td>"+somme[1]/nbNotes+"</td> <td>"+somme[2]/nbNotes+"</td> <td></td></tr>");
+              out.print("<tr><td>Moyenne : </td> <td>"+(somme[0]/nbNotes)*5+"</td> <td>"+(somme[1]/nbNotes)*5+"</td> <td>"+(somme[2]/nbNotes)*5+"</td> <td></td></tr>");
               out.print("</table>");
               
             }catch (Exception e){out.print(e);}
