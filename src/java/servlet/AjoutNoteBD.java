@@ -34,6 +34,7 @@ public class AjoutNoteBD extends HttpServlet
     HttpSession session;
     
     public AjoutNoteBD() {
+    
     }
 
     public void ajouteNotes(HttpServletRequest request, HttpServletResponse response)
@@ -44,7 +45,7 @@ public class AjoutNoteBD extends HttpServlet
             conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/tpjees4","root","");
             stmt = conn.prepareStatement("INSERT INTO vote (maths, physique, chimie) VALUES (?, ?, ?)");
             notes = new int[3];
-            stmt.setString(1, session.getAttribute("math").toString());
+            stmt.setString(1, session.getAttribute("maths").toString());
             stmt.setString(2, session.getAttribute("physique").toString());
             stmt.setString(3, session.getAttribute("chimie").toString());
             
@@ -62,9 +63,10 @@ public class AjoutNoteBD extends HttpServlet
  
     private void ajoutSession(HttpServletRequest request, HttpServletResponse response)
     {
+        session = request.getSession();
         if (request.getParameter("maths") != null)
             {
-                session.setAttribute("math", request.getParameter("maths"));
+                session.setAttribute("maths", request.getParameter("maths"));
             try {
                 response.sendRedirect("vote2.jsp");
             } catch (IOException ex) {
