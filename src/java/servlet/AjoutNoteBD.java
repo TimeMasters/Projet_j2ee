@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author root
  */
-@WebServlet(name = "AjoutNote", urlPatterns = {"/AjoutNote"})
+@WebServlet(name = "AjoutNoteBD", urlPatterns = {"/AjoutNoteBD"})
 public class AjoutNoteBD extends HttpServlet 
 {
     Connection conn = null;
@@ -33,28 +33,30 @@ public class AjoutNoteBD extends HttpServlet
     int notes[];
     HttpSession session;
     
-    public AjoutNoteBD(HttpServletRequest request, HttpServletResponse response) {
+    public AjoutNoteBD() {
+    }
+
+    public void ajouteNotes(HttpServletRequest request, HttpServletResponse response)
+    {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             session = request.getSession();
             conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/tpjees4","root","");
             stmt = conn.prepareStatement("INSERT INTO vote (maths, physique, chimie) VALUES (?, ?, ?)");
             notes = new int[3];
-        } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public void ajouteNotes()
-    {
-        try {
-            stmt.setString(1, session.getAttribute("maths").toString());
+            stmt.setString(1, session.getAttribute("math").toString());
             stmt.setString(2, session.getAttribute("physique").toString());
             stmt.setString(3, session.getAttribute("chimie").toString());
             
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AjoutNoteBD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(AjoutNoteBD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(AjoutNoteBD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
  
@@ -81,8 +83,7 @@ public class AjoutNoteBD extends HttpServlet
             else if (request.getParameter("chimie") != null)
             {
                 session.setAttribute("chimie", request.getParameter("chimie"));
-                AjoutNoteBD addBD = new AjoutNoteBD(request, response);
-                addBD.ajouteNotes();
+                this.ajouteNotes(request,response);
             try {
                 response.sendRedirect("index.jsp");
             } catch (IOException ex) {
