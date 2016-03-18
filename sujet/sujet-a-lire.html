@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TP JEE - Noté</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Objectifs Tp noté</h1>
+        <ol type="1">
+            <li>Application Web</li>
+            <li>Evaluation des enseignements</li>
+            <li>Trois enseignements évalués</li>
+            <ol type=""a">
+                <li>maths</li>
+                <li>physique</li>
+                <li>chimie</li>
+            </ol>
+            <li>chaque enseignement noté sur 5</li>
+        </ol>
+        
+        <hr/>
+         <h1>Matériel</h1>
+         <ol type="1">
+		     <li>L'énoncé est un fichier html sujet-a-lire dans titan:pub/progweb-serveur/tpjee-groupeA</li>
+             <li>Serveur apache Tomcat ou Glassfish</li>
+             <li>zip contenant quatre fichiers ; titan:pub/progweb-serveur/tpjee-groupeA/</li>
+             <ol type=""a">
+                <li>tpjees4.sql script sql pour installer la base en local</li>
+                <li>bd.jsp script pour se connecter à la bd et afficher les résultats</li>
+                <li>index.jsp la page de login</li>
+                <li>vote1.jsp la page de vote pour les maths</li>
+            </ol>
+             <li>sur le serveur 192.168.2.192, la base est déjà installée, pour se connecter avec le couple (tpjee,tpjee)</li>
+             
+         </ol>
+         
+         <h1>A rendre </h1>
+            <p> Vous devez remettre un zip complet de votre application sur e campus 2 : espace Prog Web
+         </p>
+             <h1>Scénarii</h1>
+             <ol type="1">
+                 <li>(user,user) se connecte pour voter</li>
+                 <ol type="a">
+                     <li>le vote se fait sur trois pages (trois matières)</li>
+                     <li>possibilité de revenir en arrière (lien hypertexte)</li>
+                     <li>la validation à la dernière page provoque l'insertion des données en BD et la déconnexion (retour à la page de connexion)</li>
+                </ol>
+                 <li>(admin,admin) se connecte pour voir le bilan des votes et la moyenne par matière (à calculer), il se déconnecte</li>
+             </ol>
+    </body>
+</html>
