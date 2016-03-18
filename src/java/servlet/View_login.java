@@ -10,6 +10,6 @@ package servlet;
  *
  * @author sahmed
  */
-public class Model {
+public class View_login {
     
 }
