@@ -20,32 +20,30 @@ public class Model_login {
     private String mdpAutorise;
     private String userAdmin;
     private String mdpAdmin;
-        public boolean verifier(HttpServletRequest request, HttpServletResponse response)
-        {
-            response.setContentType("text/html;charset=UTF-8");
-            String login = request.getParameter("login");
-            String mdp = request.getParameter("mdp");
-            
-            
-            userAutorise = "user";
-            mdpAutorise ="user";   
-            
-            userAdmin ="admin";
-            mdpAdmin ="admin";
-            if (login.equals(userAutorise) && mdp.equals(mdpAutorise)){
-                request.setAttribute("login",login);
-                request.setAttribute("mdp", mdp);
-                return true;
-            }
-            else if (login.equals(userAdmin) && mdp.equals(mdpAdmin)){
-                request.setAttribute("login",login);
-                request.setAttribute("mdp", mdp);
-                return true;
-            }
-            else{
-                return false;
-            }
-        }  
-            
-     
+    public String verifier(HttpServletRequest request, HttpServletResponse response)
+    {
+        response.setContentType("text/html;charset=UTF-8");
+        String login = request.getParameter("login");
+        String mdp = request.getParameter("mdp");
+
+
+        userAutorise = "user";
+        mdpAutorise ="user";   
+
+        userAdmin ="admin";
+        mdpAdmin ="admin";
+        if (login.equals(userAutorise) && mdp.equals(mdpAutorise)){
+            request.setAttribute("login",login);
+            request.setAttribute("mdp", mdp);
+            return "vote1.jsp";
+        }
+        else if (login.equals(userAdmin) && mdp.equals(mdpAdmin)){
+            request.setAttribute("login",login);
+            request.setAttribute("mdp", mdp);
+            return "bd.jsp";
+        }
+        else{
+            return "error.jsp";
+        }
+    }  
 }

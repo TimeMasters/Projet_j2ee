@@ -23,14 +23,9 @@ public class Controleur_login extends HttpServlet {
     {
         response.setContentType("text/html;charset=UTF-8");
         Model_login model = new Model_login();
-        if (model.verifier(request,response))
-        {
-            View_login vue = new View_login();
-            vue.afficher(request,response);
-        }
-        else{
-                        
-        }
+        String url = model.verifier(request,response);
+        View_login vue = new View_login();
+        vue.afficher(request,response,url);
     }
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
