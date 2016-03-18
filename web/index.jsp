@@ -1,25 +1,28 @@
-<%-- 
-    Document   : index
-    Created on : 18 mars 2016, 09:18:58
-    Author     : sahmed
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Page de connexion</title>
+        <title>JSP index Page</title>
     </head>
     <body>
-        <h1>Connectez vous pour noter les matières </h1>
-        <hr/>
-        <form name="auth" action="Controleur_login">
-                
-                User : <input type="text" name="login"  />
-                Mot de passe : <input type="text" name="mdp"  /><br/>
-                <td><input type="submit" value="Valider" name="Valider" /></td>
-                <td><input type="reset" value="Annuler" name="Annuler" /></td>
+        <h1>TP noté JEE</h1>
+        <h2>.....ici...vos noms....</h2>
+        <hr />
+        <h3>Page de connexion</h3>
+        <fieldset>
+            <legend>Autenthification</legend>
+             <form action="Controleur_login" method="post">
+            <p>login : <input type="text" name="login" value="" size="10" /></p>
+            
+            <p>mdp : <input type="password" name="mdp" value="" size="10" /></p>
+            
+            <p> <input type="submit" value="Valider" name="ok" /></p>
         </form>
+        </fieldset>
+       
     </body>
 </html>
