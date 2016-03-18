@@ -8,7 +8,7 @@
     <body>
         <h1>Mathématiques</h1>
         <hr/>
-        <form action="vote2.jsp">
+        <form action="AjoutNoteBD">
             <fieldset><legend>Donner une note sur 5</legend>
             <select name="maths">
                 <option>5</option>

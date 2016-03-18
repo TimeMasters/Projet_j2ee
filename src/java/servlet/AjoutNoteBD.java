@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author root
  */
-@WebServlet(name = "AjoutNote", urlPatterns = {"/AjoutNote"})
+@WebServlet(name = "AjoutNoteBD", urlPatterns = {"/AjoutNoteBD"})
 public class AjoutNoteBD extends HttpServlet 
 {
     Connection conn = null;

@@ -8,7 +8,7 @@
     <body>
         <h1>Chimie</h1>
         <hr/>
-        <form action="index.jsp">
+        <form action="AjoutNoteBD">
             <fieldset><legend>Donner une note sur 5</legend>
             <select name="chimie">
                 <option>5</option>
