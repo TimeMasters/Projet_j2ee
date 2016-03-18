@@ -8,6 +8,8 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,13 +18,12 @@ import javax.servlet.http.HttpServletResponse;
  * @author sahmed
  */
 public class View_login {
-    public void afficher(HttpServletRequest request, HttpServletResponse response)
+    public void afficher(HttpServletRequest request, HttpServletResponse response,String url)
     {
         try {
-            PrintWriter out=response.getWriter();
-            out.print("Le prix a payer sera de : "+request.getAttribute("resultat"));
-        }catch (IOException e){
-            e.printStackTrace();
+            response.sendRedirect(url);
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 }
