@@ -33,21 +33,17 @@ public class AjoutNoteBD extends HttpServlet
     int notes[];
     HttpSession session;
     
-    public AjoutNoteBD(HttpServletRequest request, HttpServletResponse response) {
+    public AjoutNoteBD() {
+    }
+
+    public void ajouteNotes(HttpServletRequest request, HttpServletResponse response)
+    {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             session = request.getSession();
             conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/tpjees4","root","");
             stmt = conn.prepareStatement("INSERT INTO vote (maths, physique, chimie) VALUES (?, ?, ?)");
             notes = new int[3];
-        } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public void ajouteNotes()
-    {
-        try {
             stmt.setString(1, session.getAttribute("math").toString());
             stmt.setString(2, session.getAttribute("physique").toString());
             stmt.setString(3, session.getAttribute("chimie").toString());
@@ -55,6 +51,8 @@ public class AjoutNoteBD extends HttpServlet
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AjoutNoteBD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
  
