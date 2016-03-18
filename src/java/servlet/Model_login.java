@@ -18,7 +18,7 @@ public class Model_login {
     
     private String userAutorise;
     private String mdpAutorise;
-        public void verifier_auth(HttpServletRequest request, HttpServletResponse response)
+        public boolean verifier(HttpServletRequest request, HttpServletResponse response)
         {
             response.setContentType("text/html;charset=UTF-8");
             String user = request.getParameter("user");
@@ -26,9 +26,17 @@ public class Model_login {
             
             
             userAutorise = "user";
-            mdpAutorise ="user";          
-            request.setAttribute("resultat",userAutorise);
-            request.setAttribute("resultat", mdpAutorise);
+            mdpAutorise ="user";   
             
-        }
+            if (user.equals(userAutorise) && mdp.equals(mdpAutorise)){
+                request.setAttribute("user",userAutorise);
+                request.setAttribute("mdp", mdpAutorise);
+                return true;
+            }
+            else{
+                return false;
+            }
+        }  
+            
+     
 }
