@@ -48,7 +48,7 @@ public class AjoutNoteBD extends HttpServlet
     public void ajouteNotes()
     {
         try {
-            stmt.setString(1, session.getAttribute("math").toString());
+            stmt.setString(1, session.getAttribute("maths").toString());
             stmt.setString(2, session.getAttribute("physique").toString());
             stmt.setString(3, session.getAttribute("chimie").toString());
             
