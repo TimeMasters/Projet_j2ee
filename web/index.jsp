@@ -12,6 +12,6 @@
         <title>Page de connexion</title>
     </head>
     <body>
-        <h1>Connectez vous pour noter les </h1>
+        <h1>Connectez vous pour noter les matières </h1>
     </body>
 </html>
