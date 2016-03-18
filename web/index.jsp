@@ -10,7 +10,7 @@
     </head>
     <body>
         <h1>TP noté JEE</h1>
-        <h2>.....ici...vos noms....</h2>
+        <h2>Ahmed Sahim & Goodwin Jean-Paul</h2>
         <hr />
         <h3>Page de connexion</h3>
         <fieldset>
