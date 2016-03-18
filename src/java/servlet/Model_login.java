@@ -18,19 +18,28 @@ public class Model_login {
     
     private String userAutorise;
     private String mdpAutorise;
+    private String userAdmin;
+    private String mdpAdmin;
         public boolean verifier(HttpServletRequest request, HttpServletResponse response)
         {
             response.setContentType("text/html;charset=UTF-8");
-            String user = request.getParameter("user");
+            String login = request.getParameter("login");
             String mdp = request.getParameter("mdp");
             
             
             userAutorise = "user";
             mdpAutorise ="user";   
             
-            if (user.equals(userAutorise) && mdp.equals(mdpAutorise)){
-                request.setAttribute("user",userAutorise);
-                request.setAttribute("mdp", mdpAutorise);
+            userAdmin ="admin";
+            mdpAdmin ="admin";
+            if (login.equals(userAutorise) && mdp.equals(mdpAutorise)){
+                request.setAttribute("login",login);
+                request.setAttribute("mdp", mdp);
+                return true;
+            }
+            else if (login.equals(userAdmin) && mdp.equals(mdpAdmin)){
+                request.setAttribute("login",login);
+                request.setAttribute("mdp", mdp);
                 return true;
             }
             else{
