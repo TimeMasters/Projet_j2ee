@@ -16,22 +16,29 @@ import javax.servlet.http.HttpServletResponse;
 public class Model_login {
     public Model_login(){}
     
+    //Variables d'authentification
     private String userAutorise;
     private String mdpAutorise;
     private String userAdmin;
     private String mdpAdmin;
+    
+    //private int moyenneMaths;
+    //private int moyennePhysique;
+    //private int moyenneChimie;
+    
+    
+    
     public String verifier(HttpServletRequest request, HttpServletResponse response)
     {
+        userAutorise = "user";
+        mdpAutorise ="user";   
+        userAdmin ="admin";
+        mdpAdmin ="admin";
+        
         response.setContentType("text/html;charset=UTF-8");
         String login = request.getParameter("login");
         String mdp = request.getParameter("mdp");
 
-
-        userAutorise = "user";
-        mdpAutorise ="user";   
-
-        userAdmin ="admin";
-        mdpAdmin ="admin";
         if (login.equals(userAutorise) && mdp.equals(mdpAutorise)){
             request.setAttribute("login",login);
             request.setAttribute("mdp", mdp);
@@ -45,5 +52,7 @@ public class Model_login {
         else{
             return "error.jsp";
         }
-    }  
+    }
+    
+    
 }
