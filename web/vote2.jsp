@@ -17,7 +17,8 @@
                 <option>2</option>
                 <option>1</option>
             </select>
-                <input type="submit" value="Suite" name="suite" /> 
+                <input type="submit" value="Suite" name="suite" /><br/><br/>
+                <input type="button" onclick="history.go(-1);" value="Precedent">
         </form>
             </fieldset>
         
