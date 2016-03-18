@@ -53,6 +53,10 @@ public class AjoutNoteBD extends HttpServlet
             ex.printStackTrace();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AjoutNoteBD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(AjoutNoteBD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(AjoutNoteBD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
  
@@ -79,8 +83,7 @@ public class AjoutNoteBD extends HttpServlet
             else if (request.getParameter("chimie") != null)
             {
                 session.setAttribute("chimie", request.getParameter("chimie"));
-                AjoutNoteBD addBD = new AjoutNoteBD(request, response);
-                addBD.ajouteNotes();
+                this.ajouteNotes(request,response);
             try {
                 response.sendRedirect("index.jsp");
             } catch (IOException ex) {
